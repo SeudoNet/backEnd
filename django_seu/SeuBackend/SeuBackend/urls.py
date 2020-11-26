@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from .views import home
+from . import views
+from job.views import job_detail,job_list
 
 urlpatterns = [
-    path('', home, name='home'),
     path('admin/', admin.site.urls),
-    path('polls/', include('polls.urls')),
-
+    path('',views.index), 
+    # path('job/<int:job_id>',job_detail,name='job_detail'),
+    # path('job/',job_list,name='job_list'),
+    path('job/',include('job.urls'))
 ]
