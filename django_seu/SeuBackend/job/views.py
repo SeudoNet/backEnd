@@ -18,7 +18,7 @@ from .models import Job
 
 # version 2: 
 def job_detail(request,job_id):
-    job=get_object_or_404(Job,pk=job_id) # model, requirement, pk=primary key=id
+    job=get_object_or_404(Job, pk=job_id) # model, requirement, pk=primary key=id
     context={}
     context['job_obj']=job
     return render(request,'job_detail.html',context)  # context need to be a dict

@@ -7,6 +7,5 @@ urlpatterns = [
     # path('job/<int:job_id>',views.job_detail,name='job_detail'),
     path('<int:job_id>',views.job_detail,name='job_detail'),
     # localhost: 8000/job/
-   
     path('',views.job_list,name='job_list'),
 ]
