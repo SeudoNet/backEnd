@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from . import views
-from job.views import job_detail,job_list
+from job.views import job_list,job_detail
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',views.index), 
+    path('', job_list,name='home'), 
+    path('admin/', admin.site.urls),  
+    path('job/', include('job.urls')),
+    
     # path('job/<int:job_id>',job_detail,name='job_detail'),
     # path('job/',job_list,name='job_list'),
-    path('job/',include('job.urls'))
 ]

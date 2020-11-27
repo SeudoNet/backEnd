@@ -1,10 +1,22 @@
+<!DOCTYPE html>
 <html>
 <head>
-
+    <meta charset='UTF-8'>
+    <title>{{job.title}}</title>
 </head>
 <body>
-    <h2>{{job_obj.title}}</h2>  <!--Dictionary lookup'--> 
+    <div>
+        <a href='{% url 'home' %}'> <!--go back to homepage-->
+            <h2>SeudoNet Available Job List</h2>
+        </a>  
+    </div>
+  
+    <h3>{{job_obj.title}}</h3>  <!--job_obj: from views.py, key of dict, Dictionary lookup'--> 
+    <p> Author: {{job_obj.author}}</p>
+    <p> Created Time: {{job_obj.create_time}}</p>
+
     <p> {{job_obj.content}}</p>
+    
 
 </body>
 
