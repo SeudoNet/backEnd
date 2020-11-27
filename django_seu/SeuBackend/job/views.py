@@ -33,5 +33,5 @@ def jobs_with_type(request,job_type_pk):
     context={} #create dict
     job_type=get_object_or_404(JobType, pk=job_type_pk) # get_object_or_404(model, requirement: pk=(parameter) job_type_pk)
     context['jobs']=Job.objects.filter(job_type=job_type) # object management; 1st job_type is attr of Model Job, 2nd job_type is the variable obtained just now.
-    context['job_type']=job_type # for html. 
-    return render(request, 'jobs_with_type.html',context)
+    context['job_type']=job_type # for jobs_with_type.html. 
+    return render(request, 'jobs_with_type.html', context) # come to this page

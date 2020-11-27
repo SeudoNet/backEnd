@@ -2,22 +2,30 @@
 <html>
 <head>
     <meta charset='UTF-8'>
-    <title> {{job_type.type_name}}</title>
+    <title> {{job_type.type_name}}</title>  
+    <!-- job_type an obstance of class JobType in views.py -->
+    <!-- type_name is attr of model JobType -->
 </head>
 <body>
     <div>
         <a href='{% url 'home' %}'> <!--go back to homepage-->
-            <h2>SeudoNet</h2>
+            <h2>SeudoNet Jobs List</h2>
         </a>  
     </div>
     <hr>
-    <h3>{{job_type.type_name}}</h3>
-    {% for job in jobs %}  <!--for loop tag-->
-        <a href="{% url 'job_detail' job.id %}">  <!--id is primary key to each record-->
+    <h3>{{job_type.type_name}}</h3>  
+    <!-- show job type -->
+
+    {% for job in jobs %}  
+    <!--for loop tag-->
+        <a href="{% url 'job_detail' job.id %}">  
+            <!--id is primary key to each record-->
             <h3>{{job.title}}</h3>
         </a>
-        <p> {{job.content | truncatewords:30}}</p>   <!--|: filter; just show 50 context-->
-    {% empty %}  <!--if empty: -->
+        <p> {{job.content | truncatewords_html:30}}</p>   
+        <!--|: filter; just show 30 words-->
+    {% empty %} 
+     <!--if empty: -->
         <p>--no jobs available right now--</p>
     {% endfor %}
     <p>SeudoNet has {{jobs |length }} jobs available right now</p>
