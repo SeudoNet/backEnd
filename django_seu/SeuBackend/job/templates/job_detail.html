@@ -13,8 +13,12 @@
   
     <h3>{{job_obj.title}}</h3>  <!--job_obj: from views.py, key of dict, Dictionary lookup'--> 
     <p> Author: {{job_obj.author}}</p>
-    <p> Created Time: {{job_obj.create_time}}</p>
-
+    <p> Created Time: {{job_obj.create_time  }}</p>
+    <p> Category:
+        <a href='{% url 'jobs_with_type' job_obj.job_type.pk %}' >
+            {{job_obj.job_type}} 
+        </a>
+    </p>
     <p> {{job_obj.content}}</p>
     
 
