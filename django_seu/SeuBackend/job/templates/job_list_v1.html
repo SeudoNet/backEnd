@@ -1,12 +1,17 @@
-{% extends 'base.html'%}
-
-{# title #}
-{% block title %} 
-    SeudoNet Job List
-{% endblock %}
-
-{# content #}
-{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <title> SeudoNet Job List</title>
+</head>
+<body>
+    <div>
+        <a href='{% url 'home' %}'> <!--go back to homepage-->
+            <h2>SeudoNet Available Job List</h2>
+        </a>  
+    </div>
+    <hr>
+   
     {% for job in jobs %}  <!--for loop tag-->
         <a href="{% url 'job_detail' job.id %}">  <!--id is primary key to each record-->
             <h3>{{job.title}}</h3>
@@ -17,4 +22,5 @@
     {% endfor %}
     <p>SeudoNet has {{jobs |length }} jobs available right now</p>
     <!-- {{jobs_count }}    same as {{jobs |length }} -->
-{% endblock %}
+</body>
+</html>

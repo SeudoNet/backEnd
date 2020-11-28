@@ -1,12 +1,20 @@
-{% extends 'base.html' %}
-
-{% block title %}
-    {{job_type.type_name}}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <title> {{job_type.type_name}}</title>  
     <!-- job_type an obstance of class JobType in views.py -->
     <!-- type_name is attr of model JobType -->
-{% endblock%} 
-
-{% block content%}
+</head>
+<body>
+    <div>
+        <a href='{% url 'home' %}'> <!--go back to homepage-->
+            <h2>SeudoNet Jobs List</h2>
+        </a>  
+    </div>
+    <hr>
+    <h3>{{job_type.type_name}}</h3>  
+    <!-- show job type -->
 
     {% for job in jobs %}  
     <!--for loop tag-->
@@ -22,4 +30,5 @@
     {% endfor %}
     <p>SeudoNet has {{jobs |length }} jobs available right now</p>
     <!-- {{jobs_count }}    same as {{jobs |length }} -->
-{% endblock%}
+</body>
+</html>
