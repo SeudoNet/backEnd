@@ -1,14 +1,13 @@
 import os
 from django.http import HttpResponse
 from django.conf import settings
+from django.shortcuts import render
 
 
 def index(request):
     return HttpResponse('Hello World')
 
+
 def home(request):
-    path=os.path.join(settings.BASE_DIR,'static','index.html')
-    html=''
-    with open(path,'r',encoding='utf-8') as f:
-        html=f.read()
-    return HttpResponse(html) 
+    context={ }
+    return render(request,'home.html',context)

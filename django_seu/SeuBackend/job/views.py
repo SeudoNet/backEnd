@@ -19,7 +19,7 @@ def job_detail(request,job_id): # specific job->use id
     job=get_object_or_404(Job, pk=job_id) # model(class), requirement: pk=primary key=id
     context={}
     context['job_obj']=job
-    return render(request,'job_detail.html',context)  # context need to be a dict
+    return render(request,'job/job_detail.html',context)  # context need to be a dict
 
 def job_list(request):
     # jobs=Job.objects.all()
@@ -27,11 +27,11 @@ def job_list(request):
     context={}
     context['jobs']=jobs
     context['jobs_count']=Job.objects.all().count()
-    return render(request,'job_list.html',context) # context need to be a dict
+    return render(request,'job/job_list.html',context) # context need to be a dict
 
 def jobs_with_type(request,job_type_pk):
     context={} #create dict
     job_type=get_object_or_404(JobType, pk=job_type_pk) # get_object_or_404(model, requirement: pk=(parameter) job_type_pk)
     context['jobs']=Job.objects.filter(job_type=job_type) # object management; 1st job_type is attr of Model Job, 2nd job_type is the variable obtained just now.
     context['job_type']=job_type # for jobs_with_type.html. 
-    return render(request, 'jobs_with_type.html', context) # come to this page
+    return render(request, 'job/jobs_with_type.html', context) # come to this page
